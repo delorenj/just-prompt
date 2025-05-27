@@ -1,0 +1,41 @@
+[tools]
+python = "3.11"
+uv = "latest"
+
+[tasks.test]
+description = "Run the test suite"
+run = "uv run pytest"
+
+[tasks.test-verbose]
+description = "Run tests with verbose output"
+run = "uv run pytest -v"
+
+[tasks.test-watch]
+description = "Run tests in watch mode"
+run = "uv run pytest-watch"
+
+[tasks.dev]
+description = "Run the development server"
+run = "uv run just-prompt"
+
+[tasks.tree]
+description = "Show project structure"
+run = "tree -I 'node_modules|__pycache__|.git|.venv|.pytest_cache|*.pyc|*.pyo' -L 3"
+
+[tasks.install]
+description = "Install all dependencies"
+run = "uv sync"
+
+[tasks.clean]
+description = "Clean up generated files"
+run = """
+find . -type d -name __pycache__ -exec rm -rf {} +
+find . -type f -name "*.pyc" -delete
+find . -type f -name "*.pyo" -delete
+rm -rf .pytest_cache
+rm -rf src/just_prompt.egg-info
+"""
+
+[tasks.list-models]
+description = "List available LLM models"
+run = "uv run python list_models.py"

@@ -1,6 +1,8 @@
 # Just Prompt - A lightweight MCP server for LLM providers
 
-`just-prompt` is a Model Control Protocol (MCP) server that provides a unified interface to various Large Language Model (LLM) providers including OpenAI, Anthropic, Google Gemini, Groq, DeepSeek, and Ollama. See how we use the `ceo_and_board` tool to make [hard decisions easy with o3 here](https://youtu.be/LEMLntjfihA).
+`just-prompt` is a Model Control Protocol (MCP) server that provides a unified interface to various Large Language Model (LLM) providers including OpenAI, Anthropic, Google Gemini, Groq, DeepSeek, and Ollama. It's like having a universal remote for all your AI models - pretty neat, right?
+
+**Based on the fantastic original work by [@disler](https://github.com/disler)** - huge thanks for creating such an awesome tool! 🎉
 
 <img src="images/just-prompt-logo.png" alt="Just Prompt Logo" width="700" height="auto">
 
@@ -78,10 +80,11 @@ The following MCP tools are available in the server:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/just-prompt.git
+git clone https://github.com/delorenj/just-prompt.git
 cd just-prompt
 
-# Install with pip
+# Install dependencies using mise and uv
+mise install
 uv sync
 ```
 
@@ -199,7 +202,11 @@ claude mcp remove just-prompt
 
 ## Running Tests
 
+Want to make sure everything's working? Just run:
+
 ```bash
+mise run test
+# or if you prefer the direct approach:
 uv run pytest
 ```
 
@@ -259,8 +266,14 @@ uv run pytest
 └── ultra_diff_review/         # Diff review outputs
 ```
 
-## Context Priming
-READ README.md, pyproject.toml, then run git ls-files, and 'eza --git-ignore --tree' to understand the context of the project.
+## Getting Your Bearings
+
+When you're diving into this codebase, here's a quick way to get oriented:
+1. Check out this README (you're already here!)
+2. Peek at the `pyproject.toml` for dependencies
+3. Run `git ls-files` or `mise run tree` to see the full structure
+
+It's actually pretty straightforward once you get the hang of it!
 
 # Reasoning Effort with OpenAI o‑Series
 
@@ -324,7 +337,10 @@ Notes:
 - https://github.com/ollama/ollama-python
 - https://github.com/openai/openai-python
 
-## Master AI Coding 
-Learn to code with AI with foundational [Principles of AI Coding](https://agenticengineer.com/principled-ai-coding?y=jprompt)
+## Credits
 
-Follow the [IndyDevDan youtube channel](https://www.youtube.com/@indydevdan) for more AI coding tips and tricks.
+This project is based on the original [just-prompt](https://github.com/disler/just-prompt) created by [@disler](https://github.com/disler). The original implementation laid the groundwork for this powerful MCP server that unifies access to multiple LLM providers. Thank you for open-sourcing such a useful tool and inspiring this continuation of the project!
+
+## About the Maintainer
+
+Currently maintained by [Jarad DeLorenzo](https://delorenj.com). If you're into AI-powered development and want to see more projects like this, drop by my site!
